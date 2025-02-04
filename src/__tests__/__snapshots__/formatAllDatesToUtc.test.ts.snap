@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`formatAllDatesToUtc [impl] > should recursively replace all dates by formatted strings, given structure with nestings 1`] = `
+{
+  "a": "implement this Sun Feb 01 1998 01:00:00 GMT+0100 (heure normale d’Europe centrale)",
+  "b": "foo",
+  "c": "bar",
+  "d": "implement this Fri Jan 02 1998 01:00:00 GMT+0100 (heure normale d’Europe centrale)",
+  "nested": {
+    "a": "foo",
+    "b": "implement this Sun Feb 01 1998 01:00:00 GMT+0100 (heure normale d’Europe centrale)",
+    "deeplyNested": {
+      "a": "implement this Sun Feb 01 1998 01:00:00 GMT+0100 (heure normale d’Europe centrale)",
+      "b": "foo",
+    },
+  },
+}
+`;
+
+exports[`formatAllDatesToUtc [impl] > should replace all dates by formatted strings, given flat structure 1`] = `
+{
+  "a": "implement this Sun Feb 01 1998 01:00:00 GMT+0100 (heure normale d’Europe centrale)",
+  "b": "foo",
+  "c": "bar",
+  "d": "implement this Fri Jan 02 1998 01:00:00 GMT+0100 (heure normale d’Europe centrale)",
+}
+`;
