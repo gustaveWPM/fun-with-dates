@@ -46,7 +46,6 @@ const dataset = {
 describe('formatAllDatesToUtc [impl]', () => {
   it('should let the structure unchanged, given an empty structure', () => {
     const input = {};
-
     const output = formatAllDatesToUtc(input);
 
     expect(output).toStrictEqual(input);
@@ -60,17 +59,15 @@ describe('formatAllDatesToUtc [impl]', () => {
   });
 
   it('should replace all dates by formatted strings, given flat structure with dates', () => {
-    const data = dataset.flatStructureWithDates;
-
-    const output = formatAllDatesToUtc(data);
+    const input = dataset.flatStructureWithDates;
+    const output = formatAllDatesToUtc(input);
 
     expect(output).toMatchSnapshot();
   });
 
   it('should recursively replace all dates by formatted strings, given structure with dates & nestings', () => {
-    const data = dataset.deepStructureWithDates;
-
-    const output = formatAllDatesToUtc(data);
+    const input = dataset.deepStructureWithDates;
+    const output = formatAllDatesToUtc(input);
 
     expect(output).toMatchSnapshot();
   });
