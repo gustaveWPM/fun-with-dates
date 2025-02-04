@@ -1,0 +1,61 @@
+{
+  "name": "rtm-dashboard",
+  "version": "0.9.3",
+  "author": "gustaveWPM (github.com/gustaveWPM)",
+  "contributors": [
+    "Tirraa (github.com/Tirraa)"
+  ],
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "format": "prettier --log-level warn --write .",
+    "ts-prune": "ts-prune --ignore \".(next|contentlayer|vitest|stryker-tmp)\" | python3 .ts-prune/sanitize.py --quiet",
+    "ts-prune-verbose": "ts-prune --ignore \".(next|contentlayer|vitest|stryker-tmp)\" | python3 .ts-prune/sanitize.py",
+    "ci:lint": "eslint . --max-warnings 0",
+    "ci:typecheck-project": "tsc --noEmit --pretty",
+    "ci:format-check": "prettier . --check",
+    "test": "make test",
+    "test:run": "vitest --run --typecheck",
+    "coverage": "vitest --run --coverage.enabled --coverage.all=false",
+    "coverage-all": "vitest --run --coverage.enabled --coverage.all",
+    "vitest:ui": "vitest --ui",
+    "prepare": "husky",
+    "commit": "git-cz"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cz-commitlint": "^19.2.0",
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^15.0.7",
+    "@types/eslint": "^8.56.10",
+    "@types/node": "^20.12.12",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
+    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/ui": "^1.6.0",
+    "commitizen": "^4.3.0",
+    "editorconfig": "^2.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.3",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-only-error": "^1.0.2",
+    "eslint-plugin-perfectionist": "^2.10.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.7",
+    "ts-prune": "0.10.3",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "vitest": "^1.6.0"
+  },
+  "engines": {
+    "node": "^20.x",
+    "pnpm": "9.x"
+  }
+}

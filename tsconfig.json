@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.common.json",
+
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["esnext"],
+    "noEmit": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "incremental": true,
+
+    "paths": {
+      "𝕍/*": [".vitest/*"],
+    }
+  },
+
+  "include": ["**/*.ts", "vitest.config.mts"],
+  "exclude": ["node_modules", "dist"]
+}
