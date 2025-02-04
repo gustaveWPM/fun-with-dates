@@ -2,9 +2,6 @@
 
 /** @type {import("prettier").Config} */
 const config = {
-  tailwindFunctions: ['cn', 'cva', 'clsx', 'twMerge'],
-  plugins: ['prettier-plugin-tailwindcss'],
-  tailwindConfig: './tailwind.config.ts',
   bracketSameLine: false,
   trailingComma: 'none',
   bracketSpacing: true,
@@ -12,6 +9,7 @@ const config = {
   singleQuote: true,
   printWidth: 150,
   useTabs: false,
+  plugins: [],
   tabWidth: 2,
   semi: true
 };
