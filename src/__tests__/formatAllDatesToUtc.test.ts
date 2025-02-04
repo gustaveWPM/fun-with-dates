@@ -133,6 +133,7 @@ describe('formatAllDatesToUtc [typing]', () => {
       };
 
       optionalDateOrStringOrNull?: string | Date | null;
+      dateOrStringOrNull: string | Date | null;
       number: number;
       date: Date;
     };
@@ -148,6 +149,7 @@ describe('formatAllDatesToUtc [typing]', () => {
       };
 
       optionalDateOrStringOrNull?: string | null;
+      dateOrStringOrNull: string | null;
       number: number;
       date: string;
     }>();
