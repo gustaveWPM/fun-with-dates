@@ -1,10 +1,6 @@
+import type { DatesToStrings } from './types/DatesToStrings';
+
 import dayjs from './modules/dayjs';
-
-type _DistributeDatesToStrings<T> = {
-  [K in keyof T]: DatesToStrings<T[K]>;
-};
-
-type DatesToStrings<T> = T extends Date ? string : T extends object ? _DistributeDatesToStrings<T> : T;
 
 const formatUtcDate = (d: Date): string => dayjs.utc(d).local().format();
 

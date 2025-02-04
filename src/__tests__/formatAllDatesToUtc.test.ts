@@ -1,4 +1,6 @@
-import { describe, expect, it } from 'vitest';
+import { assertType, describe, expect, it } from 'vitest';
+
+import type { DatesToStrings } from '../types/DatesToStrings';
 
 import { formatAllDatesToUtc } from '../formatAllDatesToUtc';
 
@@ -67,6 +69,13 @@ describe('formatAllDatesToUtc [impl]', () => {
 
 describe('formatAllDatesToUtc [typing]', () => {
   it('should _, given _', () => {
+    const _ = {} as DatesToStrings<{
+      'hello.world': 'Hello World';
+      hello: 'Hello';
+    }>;
+
+    assertType<'hello.world' | 'hello'>(_);
+
     expect(true).toBe(true);
   });
 });
