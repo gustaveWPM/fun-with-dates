@@ -45,7 +45,8 @@ describe('formatAllDatesToUtc [impl]', () => {
       nested: {
         deeplyNested: {
           a: new Date('1998-02-01'),
-          b: 'foo'
+          b: 'foo',
+          c: 12
         },
 
         b: new Date('1998-02-01'),

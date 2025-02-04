@@ -1,10 +1,7 @@
 {
-  "name": "rtm-dashboard",
-  "version": "0.9.3",
+  "name": "osef",
+  "version": "0.0.1",
   "author": "gustaveWPM (github.com/gustaveWPM)",
-  "contributors": [
-    "Tirraa (github.com/Tirraa)"
-  ],
   "license": "MIT",
   "private": true,
   "scripts": {

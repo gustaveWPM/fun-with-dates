@@ -1,10 +1,12 @@
+import dayjs from './modules/dayjs';
+
 type _DistributeDatesToStrings<T> = {
   [K in keyof T]: DatesToStrings<T[K]>;
 };
 
 type DatesToStrings<T> = T extends Date ? string : T extends object ? _DistributeDatesToStrings<T> : T;
 
-const formatUtcDate = (d: Date): string => `implement this ${d}`;
+const formatUtcDate = (d: Date): string => dayjs.utc(d).local().format();
 
 function formatEntry<Input extends object>(k: keyof Input, v: Input[typeof k]) {
   if (v instanceof Date) return [k, formatUtcDate(v)];
