@@ -1,3 +1,5 @@
+export const DUMMY_NEEDLE = '__DUMMY__';
+
 const DATASET = {
   deepStructureWithDates: {
     nested: {
@@ -19,7 +21,7 @@ const DATASET = {
 
   flatStructureWithoutDates: {
     // eslint-disable-next-line no-magic-numbers
-    fun: () => '__DUMMY__',
+    fun: () => DUMMY_NEEDLE,
     undefined: undefined,
     // eslint-disable-next-line no-magic-numbers
     bigint: BigInt(28),
