@@ -48,5 +48,3 @@ clean: clean-coverage-report
 fclean: clean clean-node-modules
 
 re: fclean install build
-
-re-using-pm-cache: clean build

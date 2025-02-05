@@ -24,13 +24,6 @@ module.exports = {
     'import/first': ERROR,
     'no-eval': ERROR
   },
-  extends: [
-    'next/core-web-vitals',
-    'plugin:promise/recommended',
-    'plugin:perfectionist/recommended-alphabetical',
-    'plugin:perfectionist/recommended-natural',
-    'plugin:perfectionist/recommended-line-length'
-  ],
 
   overrides: [
     {
@@ -39,6 +32,13 @@ module.exports = {
       },
       files: ['vitest.config.ts', '*.test.ts', '*.test.tsx', '*.test-d.ts', '*Adapter.js']
     }
+  ],
+
+  extends: [
+    'next/core-web-vitals',
+    'plugin:perfectionist/recommended-alphabetical',
+    'plugin:perfectionist/recommended-natural',
+    'plugin:perfectionist/recommended-line-length'
   ],
 
   plugins: ['@typescript-eslint', 'import', 'unused-imports', 'only-error', 'perfectionist', 'react'],
