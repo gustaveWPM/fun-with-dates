@@ -3,7 +3,7 @@ import { expectTypeOf, describe, it } from 'vitest';
 import type { DatesToStrings } from '../types/DatesToStrings';
 
 import { formatAllDatesToUtc } from '../formatAllDatesToUtc';
-import dataset from './data/dataset';
+import DATASET from './data/dataset';
 
 describe('formatAllDatesToUtc [typing]', () => {
   it('should let the type unchanged, given an empty structure type', () => {
@@ -14,14 +14,14 @@ describe('formatAllDatesToUtc [typing]', () => {
   });
 
   it('should let the type unchanged, given a structure without dates', () => {
-    type TInput = typeof dataset.flatStructureWithoutDates;
+    type TInput = typeof DATASET.flatStructureWithoutDates;
     type TOutput = DatesToStrings<TInput>;
 
     expectTypeOf<TOutput>().toEqualTypeOf<TInput>();
   });
 
   it('should replace all dates by strings, given flat structure with dates', () => {
-    type TInput = typeof dataset.flatStructureWithDates;
+    type TInput = typeof DATASET.flatStructureWithDates;
     type TOutput = DatesToStrings<TInput>;
 
     expectTypeOf<TOutput>().toEqualTypeOf<{
@@ -33,7 +33,7 @@ describe('formatAllDatesToUtc [typing]', () => {
   });
 
   it('should recursively replace all dates by formatted strings, given structure with dates & nestings', () => {
-    type TInput = typeof dataset.deepStructureWithDates;
+    type TInput = typeof DATASET.deepStructureWithDates;
     type TOutput = DatesToStrings<TInput>;
 
     expectTypeOf<TOutput>().toEqualTypeOf<{
@@ -91,10 +91,10 @@ describe('formatAllDatesToUtc [typing]', () => {
   it('should remap types with strictness, given a structure shape', () => {
     type Remapped<Input extends object> = DatesToStrings<Input>;
 
-    const input = dataset.deepStructureWithDates;
+    const input = DATASET.deepStructureWithDates;
     const output = formatAllDatesToUtc(input);
 
     expectTypeOf<typeof input>().not.toEqualTypeOf<typeof output>;
-    expectTypeOf<Remapped<typeof dataset.deepStructureWithDates>>().toEqualTypeOf<typeof output>;
+    expectTypeOf<Remapped<typeof DATASET.deepStructureWithDates>>().toEqualTypeOf<typeof output>;
   });
 });

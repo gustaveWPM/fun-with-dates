@@ -1,4 +1,4 @@
-const dataset = {
+const DATASET = {
   deepStructureWithDates: {
     nested: {
       deeplyNested: {
@@ -35,4 +35,4 @@ const dataset = {
   }
 } as const;
 
-export default dataset;
+export default DATASET;
