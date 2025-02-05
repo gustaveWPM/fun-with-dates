@@ -154,4 +154,14 @@ describe('formatAllDatesToUtc [typing]', () => {
       date: string;
     }>();
   });
+
+  it('should remap types with strictness, given a structure shape', () => {
+    type Remapped<Input extends object> = DatesToStrings<Input>;
+
+    const input = dataset.deepStructureWithDates;
+    const output = formatAllDatesToUtc(input);
+
+    expectTypeOf<typeof input>().not.toEqualTypeOf<typeof output>;
+    expectTypeOf<Remapped<typeof dataset.deepStructureWithDates>>().toEqualTypeOf<typeof output>;
+  });
 });
