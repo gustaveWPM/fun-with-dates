@@ -126,7 +126,7 @@ describe('formatAllDatesToUtc [typing]', () => {
   it('should distribute optionals, given a structure with optional fields type & types unions', () => {
     type TInput = {
       a?: {
-        optionalDateOrString?: string | Date;
+        readonly optionalDateOrString?: string | Date;
         dateOrString: string | Date;
         string: string;
         date: Date;
@@ -142,7 +142,7 @@ describe('formatAllDatesToUtc [typing]', () => {
 
     expectTypeOf<TOutput>().toEqualTypeOf<{
       a?: {
-        optionalDateOrString?: string;
+        readonly optionalDateOrString?: string;
         dateOrString: string;
         string: string;
         date: string;
