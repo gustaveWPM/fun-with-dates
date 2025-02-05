@@ -20,7 +20,7 @@ describe('formatAllDatesToUtc [typing]', () => {
     expectTypeOf<TOutput>().toEqualTypeOf<TInput>();
   });
 
-  it('should preserve functions, given a flat structure with functions & without dates', () => {
+  it('should preserve functions, given a structure with a function', () => {
     type TInput = typeof DATASET.flatStructureWithoutDates;
     type TOutput = DatesToStrings<TInput>;
 

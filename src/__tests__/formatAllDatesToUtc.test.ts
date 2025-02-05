@@ -18,7 +18,7 @@ describe('formatAllDatesToUtc [impl]', () => {
     expect(output).toStrictEqual(input);
   });
 
-  it('should preserve functions, given a flat structure with functions & without dates', () => {
+  it('should preserve functions, given a structure with a function', () => {
     const input = DATASET.flatStructureWithoutDates;
     const output = formatAllDatesToUtc(input);
 
