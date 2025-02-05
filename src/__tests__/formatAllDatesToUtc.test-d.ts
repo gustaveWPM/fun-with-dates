@@ -61,6 +61,7 @@ describe('formatAllDatesToUtc [typing]', () => {
     expectTypeOf<TOutput>().toEqualTypeOf<{
       readonly nested: {
         readonly deeplyNested: {
+          readonly date2: string;
           readonly date: string;
           readonly foo: 'foo';
           // eslint-disable-next-line no-magic-numbers
@@ -130,5 +131,8 @@ describe('formatAllDatesToUtc [typing]', () => {
 
     expectTypeOf<typeof input.nested.deeplyNested.date>().toEqualTypeOf<Date>;
     expectTypeOf<typeof output.nested.deeplyNested.date>().toEqualTypeOf<string>;
+
+    expectTypeOf<typeof input.nested.deeplyNested.date2>().toEqualTypeOf<Date>;
+    expectTypeOf<typeof output.nested.deeplyNested.date2>().toEqualTypeOf<string>;
   });
 });
