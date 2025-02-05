@@ -20,7 +20,6 @@ const DATASET = {
   },
 
   flatStructureWithoutDates: {
-    // eslint-disable-next-line no-magic-numbers
     fun: () => DUMMY_NEEDLE,
     // eslint-disable-next-line no-magic-numbers
     bigint: BigInt(28),
