@@ -28,18 +28,18 @@ describe('formatAllDatesToUtc [impl]', () => {
     expect(output.fun(string, number, { string, number })).toBe(input.fun(string, number, { string, number }));
   });
 
-  it('should replace all dates by formatted strings, given a flat structure with dates', () => {
-    const input = DATASET.flatStructureWithDates;
-    const output = formatAllDatesToUtc(input);
-
-    expect(output).toMatchSnapshot();
-  });
-
   it('should let the structure unchanged, given a structure with nestings & without dates', () => {
     const input = DATASET.deepStructureWithoutDates;
     const output = formatAllDatesToUtc(input);
 
     expect(output).toStrictEqual(input);
+  });
+
+  it('should replace all dates by formatted strings, given a flat structure with dates', () => {
+    const input = DATASET.flatStructureWithDates;
+    const output = formatAllDatesToUtc(input);
+
+    expect(output).toMatchSnapshot();
   });
 
   it('should recursively replace all dates by formatted strings, given a structure with dates & nestings', () => {
