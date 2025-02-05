@@ -97,6 +97,15 @@ describe('formatAllDatesToUtc [typing]', () => {
     expectTypeOf<typeof input>().not.toEqualTypeOf<typeof output>;
     expectTypeOf<Remapped<typeof input>>().toEqualTypeOf<typeof output>;
 
+    expectTypeOf<typeof input.date>().toEqualTypeOf<Date>;
+    expectTypeOf<typeof output.date>().toEqualTypeOf<string>;
+
+    expectTypeOf<typeof input.date2>().toEqualTypeOf<Date>;
+    expectTypeOf<typeof output.date2>().toEqualTypeOf<string>;
+
+    expectTypeOf<typeof input.nested.date>().toEqualTypeOf<Date>;
+    expectTypeOf<typeof output.nested.date>().toEqualTypeOf<string>;
+
     expectTypeOf<typeof input.nested.deeplyNested.date>().toEqualTypeOf<Date>;
     expectTypeOf<typeof output.nested.deeplyNested.date>().toEqualTypeOf<string>;
   });
