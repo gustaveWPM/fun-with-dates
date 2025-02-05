@@ -1,1 +1,1 @@
-WORK IN PROGRESS :heart:
+Will be moved to https://github.com/gustaveWPM/experimentations
