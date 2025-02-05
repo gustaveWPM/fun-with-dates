@@ -2,27 +2,27 @@
 
 exports[`formatAllDatesToUtc [impl] > should recursively replace all dates by formatted strings, given structure with dates & nestings 1`] = `
 {
-  "a": "1998-02-01T01:00:00+01:00",
-  "b": "foo",
-  "c": "bar",
-  "d": "1998-01-02T01:00:00+01:00",
+  "bar": "bar",
+  "date": "1998-02-01T01:00:00+01:00",
+  "date2": "1998-01-02T01:00:00+01:00",
+  "foo": "foo",
   "nested": {
-    "a": "foo",
-    "b": "1998-02-01T01:00:00+01:00",
+    "date": "1998-02-01T01:00:00+01:00",
     "deeplyNested": {
-      "a": "1998-02-01T01:00:00+01:00",
-      "b": "foo",
-      "c": 12,
+      "12": 12,
+      "date": "1998-02-01T01:00:00+01:00",
+      "foo": "foo",
     },
+    "foo": "foo",
   },
 }
 `;
 
 exports[`formatAllDatesToUtc [impl] > should replace all dates by formatted strings, given flat structure with dates 1`] = `
 {
-  "a": "1998-02-01T01:00:00+01:00",
-  "b": "foo",
-  "c": "bar",
-  "d": "1998-01-02T01:00:00+01:00",
+  "bar": "bar",
+  "date": "1998-02-01T01:00:00+01:00",
+  "date2": "1998-01-02T01:00:00+01:00",
+  "foo": "foo",
 }
 `;

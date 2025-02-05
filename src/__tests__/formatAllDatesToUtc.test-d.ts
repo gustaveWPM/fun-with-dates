@@ -25,10 +25,10 @@ describe('formatAllDatesToUtc [typing]', () => {
     type TOutput = DatesToStrings<TInput>;
 
     expectTypeOf<TOutput>().toEqualTypeOf<{
-      readonly a: string;
-      readonly d: string;
-      readonly b: 'foo';
-      readonly c: 'bar';
+      readonly date2: string;
+      readonly date: string;
+      readonly foo: 'foo';
+      readonly bar: 'bar';
     }>();
   });
 
@@ -39,20 +39,20 @@ describe('formatAllDatesToUtc [typing]', () => {
     expectTypeOf<TOutput>().toEqualTypeOf<{
       readonly nested: {
         readonly deeplyNested: {
-          readonly a: string;
-          readonly b: 'foo';
+          readonly date: string;
+          readonly foo: 'foo';
           // eslint-disable-next-line no-magic-numbers
-          readonly c: 12;
+          readonly 12: 12;
         };
 
-        readonly b: string;
-        readonly a: 'foo';
+        readonly date: string;
+        readonly foo: 'foo';
       };
 
-      readonly a: string;
-      readonly d: string;
-      readonly b: 'foo';
-      readonly c: 'bar';
+      readonly date2: string;
+      readonly date: string;
+      readonly foo: 'foo';
+      readonly bar: 'bar';
     }>();
   });
 
@@ -96,5 +96,8 @@ describe('formatAllDatesToUtc [typing]', () => {
 
     expectTypeOf<typeof input>().not.toEqualTypeOf<typeof output>;
     expectTypeOf<Remapped<typeof DATASET.deepStructureWithDates>>().toEqualTypeOf<typeof output>;
+
+    expectTypeOf<typeof output.nested.deeplyNested.date>().toEqualTypeOf<string>;
+    expectTypeOf<typeof input.nested.deeplyNested.date>().toEqualTypeOf<Date>;
   });
 });

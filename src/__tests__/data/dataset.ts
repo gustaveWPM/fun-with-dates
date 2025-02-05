@@ -2,36 +2,37 @@ const DATASET = {
   deepStructureWithDates: {
     nested: {
       deeplyNested: {
-        a: new Date('1998-02-01'),
-        b: 'foo',
-        c: 12
+        date: new Date('1998-02-01'),
+        foo: 'foo',
+        12: 12
       },
 
-      b: new Date('1998-02-01'),
-      a: 'foo'
+      date: new Date('1998-02-01'),
+      foo: 'foo'
     },
 
-    a: new Date('1998-02-01'),
-    d: new Date('1998-01-02'),
-    b: 'foo',
-    c: 'bar'
+    date2: new Date('1998-01-02'),
+    date: new Date('1998-02-01'),
+    foo: 'foo',
+    bar: 'bar'
   },
 
   flatStructureWithoutDates: {
     // eslint-disable-next-line no-magic-numbers
-    c: BigInt(28),
-    e: undefined,
-    f: () => {},
-    b: 'foo',
-    d: null,
-    a: 12
+    fun: () => '__DUMMY__',
+    undefined: undefined,
+    // eslint-disable-next-line no-magic-numbers
+    bigint: BigInt(28),
+    foo: 'foo',
+    null: null,
+    12: 12
   },
 
   flatStructureWithDates: {
-    a: new Date('1998-02-01'),
-    d: new Date('1998-01-02'),
-    b: 'foo',
-    c: 'bar'
+    date2: new Date('1998-01-02'),
+    date: new Date('1998-02-01'),
+    foo: 'foo',
+    bar: 'bar'
   }
 } as const;
 

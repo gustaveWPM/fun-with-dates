@@ -15,6 +15,9 @@ describe('formatAllDatesToUtc [impl]', () => {
     const input = DATASET.flatStructureWithoutDates;
     const output = formatAllDatesToUtc(input);
 
+    expect(input.fun()).toBe('__DUMMY__');
+    expect(output.fun()).toBe('__DUMMY__');
+
     expect(output).toStrictEqual(input);
   });
 
