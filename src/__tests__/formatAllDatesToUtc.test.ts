@@ -24,9 +24,8 @@ describe('formatAllDatesToUtc [impl]', () => {
 
     // eslint-disable-next-line no-magic-numbers
     const [string, number] = ['string', 0];
-    const obj = { string, number };
 
-    expect(output.fun(string, number, obj)).toBe(input.fun(string, number, obj));
+    expect(output.fun(string, number, { string, number })).toBe(input.fun(string, number, { string, number }));
   });
 
   it('should replace all dates by formatted strings, given a flat structure with dates', () => {
