@@ -14,7 +14,6 @@ module.exports = {
     'import/no-extraneous-dependencies': [ERROR, { devDependencies: false }],
     'import/consistent-type-specifier-style': [ERROR, 'prefer-top-level'],
     'unused-imports/no-unused-imports': ERROR,
-    'react/jsx-no-useless-fragment': ERROR,
     'import/no-duplicates': ERROR,
     'no-magic-numbers': ERROR,
 
