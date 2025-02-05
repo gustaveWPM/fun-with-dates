@@ -13,15 +13,11 @@ COVERAGE_GENERATED_REPORT := coverage
 	$(PM) run "$@"
 
 # @Default
-all: build
+all: test
 
 # @Mirror
 install:
 	$(PM) install
-
-# @Mirror
-build:
-	$(PM) run build
 
 # @Override
 test: initialize

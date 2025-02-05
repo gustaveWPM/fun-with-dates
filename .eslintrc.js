@@ -35,13 +35,12 @@ module.exports = {
   ],
 
   extends: [
-    'next/core-web-vitals',
     'plugin:perfectionist/recommended-alphabetical',
     'plugin:perfectionist/recommended-natural',
     'plugin:perfectionist/recommended-line-length'
   ],
 
-  plugins: ['@typescript-eslint', 'import', 'unused-imports', 'only-error', 'perfectionist', 'react'],
+  plugins: ['@typescript-eslint', 'import', 'unused-imports', 'only-error', 'perfectionist'],
 
   parser: '@typescript-eslint/parser'
 };
