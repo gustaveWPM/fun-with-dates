@@ -11,6 +11,7 @@ exports[`formatAllDatesToUtc [impl] > should recursively replace all dates by fo
     "deeplyNested": {
       "12": 12,
       "date": "1998-02-01T01:00:00+01:00",
+      "date2": "1998-01-02T01:00:00+01:00",
       "foo": "foo",
     },
     "foo": "foo",
