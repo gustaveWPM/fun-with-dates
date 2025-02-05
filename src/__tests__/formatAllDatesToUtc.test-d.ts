@@ -24,8 +24,13 @@ describe('formatAllDatesToUtc [typing]', () => {
     type TInput = typeof DATASET.flatStructureWithoutDates;
     type TOutput = DatesToStrings<TInput>;
 
-    expectTypeOf<TInput['fun']>().toEqualTypeOf<() => ReturnType<TInput['fun']>>();
-    expectTypeOf<TOutput['fun']>().toEqualTypeOf<() => ReturnType<TOutput['fun']>>();
+    expectTypeOf<TInput['fun']>().toEqualTypeOf<
+      (string: string, number: number, obj: { string: string; number: number }) => ReturnType<TInput['fun']>
+    >();
+
+    expectTypeOf<TOutput['fun']>().toEqualTypeOf<
+      (string: string, number: number, obj: { string: string; number: number }) => ReturnType<TOutput['fun']>
+    >();
 
     expectTypeOf<TOutput['fun']>().toEqualTypeOf<TInput['fun']>();
   });

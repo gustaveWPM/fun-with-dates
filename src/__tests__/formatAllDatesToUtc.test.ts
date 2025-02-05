@@ -22,7 +22,11 @@ describe('formatAllDatesToUtc [impl]', () => {
     const input = DATASET.flatStructureWithoutDates;
     const output = formatAllDatesToUtc(input);
 
-    expect(output.fun()).toBe(input.fun());
+    // eslint-disable-next-line no-magic-numbers
+    const [string, number] = ['string', 0];
+    const obj = { string, number };
+
+    expect(output.fun(string, number, obj)).toBe(input.fun(string, number, obj));
   });
 
   it('should replace all dates by formatted strings, given a flat structure with dates', () => {

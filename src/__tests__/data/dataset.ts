@@ -1,4 +1,14 @@
 const DATASET = {
+  flatStructureWithoutDates: {
+    fun: (string: string, number: number, obj: { string: string; number: number }) => `__DUMMY__${number}__${string}__${obj.string}__${obj.number}`,
+    // eslint-disable-next-line no-magic-numbers
+    bigint: BigInt(28),
+    foo: 'foo',
+    null: null,
+    undefined,
+    12: 12
+  },
+
   deepStructureWithDates: {
     nested: {
       deeplyNested: {
@@ -33,16 +43,6 @@ const DATASET = {
     qux: 'qux',
     foo: 'foo',
     bar: 'bar'
-  },
-
-  flatStructureWithoutDates: {
-    fun: () => '__DUMMY__',
-    // eslint-disable-next-line no-magic-numbers
-    bigint: BigInt(28),
-    foo: 'foo',
-    null: null,
-    undefined,
-    12: 12
   },
 
   flatStructureWithDates: {
