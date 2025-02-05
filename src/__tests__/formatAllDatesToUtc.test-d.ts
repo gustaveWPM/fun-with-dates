@@ -95,7 +95,7 @@ describe('formatAllDatesToUtc [typing]', () => {
     const output = formatAllDatesToUtc(input);
 
     expectTypeOf<typeof input>().not.toEqualTypeOf<typeof output>;
-    expectTypeOf<Remapped<typeof DATASET.deepStructureWithDates>>().toEqualTypeOf<typeof output>;
+    expectTypeOf<Remapped<typeof input>>().toEqualTypeOf<typeof output>;
 
     expectTypeOf<typeof input.nested.deeplyNested.date>().toEqualTypeOf<Date>;
     expectTypeOf<typeof output.nested.deeplyNested.date>().toEqualTypeOf<string>;
