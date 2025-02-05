@@ -44,6 +44,7 @@ describe('formatAllDatesToUtc [typing]', () => {
           // eslint-disable-next-line no-magic-numbers
           readonly c: 12;
         };
+
         readonly b: string;
         readonly a: 'foo';
       };
