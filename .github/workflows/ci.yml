@@ -1,0 +1,137 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+
+  pull_request:
+    branches: ['**']
+
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  format-check:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install project
+        run: make install
+      - name: Formatcheck
+        run: make ci:format-check
+
+  lint:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install project
+        run: make install
+      - name: Run ESLint
+        run: make ci:lint
+
+  typecheck-project:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Initialize project
+        run: make initialize
+      - name: Typecheck
+        run: make ci:typecheck-project
+
+  test:
+    strategy:
+      matrix:
+        node-version: [22, 23]
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    if: github.event.pull_request.draft == false
+    steps:
+      - name: Enable long paths support
+        if: matrix.os == 'windows-latest'
+        run: git config --system core.longpaths true
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - name: Initialize project
+        run: make initialize
+      - name: Tests
+        run: make test
+
+  build:
+    runs-on: 'ubuntu-latest'
+    if: github.event.pull_request.draft == false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - name: Install project
+        run: make install
+      - name: Build
+        run: make
+
+  ts-prune:
+    runs-on: ubuntu-20.04
+    if: github.event.pull_request.draft == false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Use Python 3.10.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.10.12
+      - name: Backup old symbolic link
+        run: sudo cp /usr/bin/python3 /usr/bin/python3.bak
+      - name: Force symbolic link to Python 3.10.12
+        run: sudo ln -sf /opt/hostedtoolcache/Python/3.10.12/x64/bin/python3 /usr/bin/python3
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install project
+        run: make install
+      - name: Run ts-prune
+        run: make ts-prune-verbose
+      - name: Restore old symbolic link
+        run: sudo rm -f /usr/bin/python3 && sudo mv /usr/bin/python3.bak /usr/bin/python3
