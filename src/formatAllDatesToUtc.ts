@@ -2,7 +2,7 @@ import type { DatesToStrings } from './types/DatesToStrings';
 
 import dayjs from './modules/dayjs';
 
-const toFormattedUtcDate = (d: Date): string => dayjs.utc(d).local().format();
+const toFormattedUtcDate = (d: Date): string => dayjs.utc(d).tz('Europe/Paris').local().format();
 
 function formatEntry<Input extends object>(k: keyof Input, v: Input[typeof k]) {
   if (v instanceof Date) return [k, toFormattedUtcDate(v)];
