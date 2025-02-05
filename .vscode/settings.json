@@ -9,26 +9,5 @@
     "source.fixAll.eslint": "explicit"
   },
 
-  "typescript.referencesCodeLens.enabled": true,
-
-  "grammarly.selectors": [
-    {
-      "language": "markdown",
-      "scheme": "file",
-      "pattern": "**/*.md"
-    }
-  ],
-
-  "tailwindCSS.classAttributes": ["class", "className"],
-
-  "tailwindCSS.experimental.classRegex": [
-    ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["clsx\\(([^]*)\\)", "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"],
-    ["(?:twMerge|twJoin)\\(([^;]*)[\\);]", "[`'\"`]([^'\"`;]*)[`'\"`]"]
-  ],
-
-  "files.associations": {
-    "*.css": "tailwindcss"
-  }
+  "typescript.referencesCodeLens.enabled": true
 }
