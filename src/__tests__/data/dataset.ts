@@ -18,12 +18,10 @@ const dataset = {
   },
 
   flatStructureWithoutDates: {
-    f: () => {
-      console.log('lol');
-    },
     // eslint-disable-next-line no-magic-numbers
     c: BigInt(28),
     e: undefined,
+    f: () => {},
     b: 'foo',
     d: null,
     a: 12
