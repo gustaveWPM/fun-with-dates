@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { formatAllDatesToUtc } from '../formatAllDatesToUtc';
-import DATASET, { DUMMY_NEEDLE } from './data/dataset';
+import DATASET from './data/dataset';
 
 describe('formatAllDatesToUtc [impl]', () => {
   it('should let the structure unchanged, given an empty structure', () => {
@@ -22,8 +22,7 @@ describe('formatAllDatesToUtc [impl]', () => {
     const input = DATASET.flatStructureWithoutDates;
     const output = formatAllDatesToUtc(input);
 
-    expect(input.fun()).toBe(DUMMY_NEEDLE);
-    expect(output.fun()).toBe(DUMMY_NEEDLE);
+    expect(input.fun()).toBe(output.fun());
   });
 
   it('should replace all dates by formatted strings, given a flat structure with dates', () => {
