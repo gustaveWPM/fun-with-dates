@@ -17,7 +17,6 @@ describe('formatAllDatesToUtc [impl]', () => {
 
     expect(input.fun()).toBe('__DUMMY__');
     expect(output.fun()).toBe('__DUMMY__');
-
     expect(output).toStrictEqual(input);
   });
 
