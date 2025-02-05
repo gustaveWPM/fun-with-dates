@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`formatAllDatesToUtc [impl] > should recursively replace all dates by formatted strings, given structure with dates & nestings 1`] = `
+exports[`formatAllDatesToUtc [impl] > should recursively replace all dates by formatted strings, given a structure with dates & nestings 1`] = `
 {
   "bar": "bar",
   "date": "1998-02-01T01:00:00+01:00",
@@ -18,7 +18,7 @@ exports[`formatAllDatesToUtc [impl] > should recursively replace all dates by fo
 }
 `;
 
-exports[`formatAllDatesToUtc [impl] > should replace all dates by formatted strings, given flat structure with dates 1`] = `
+exports[`formatAllDatesToUtc [impl] > should replace all dates by formatted strings, given a flat structure with dates 1`] = `
 {
   "bar": "bar",
   "date": "1998-02-01T01:00:00+01:00",

@@ -19,6 +19,24 @@ const DATASET = {
     bar: 'bar'
   },
 
+  deepStructureWithoutDates: {
+    nested: {
+      deeplyNested: {
+        bar: 'bar',
+        foo: 'foo',
+        12: 12
+      },
+
+      bar: 'bar',
+      foo: 'foo'
+    },
+
+    baz: 'baz',
+    qux: 'qux',
+    foo: 'foo',
+    bar: 'bar'
+  },
+
   flatStructureWithoutDates: {
     fun: () => DUMMY_NEEDLE,
     // eslint-disable-next-line no-magic-numbers

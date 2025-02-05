@@ -11,23 +11,36 @@ describe('formatAllDatesToUtc [impl]', () => {
     expect(output).toStrictEqual(input);
   });
 
-  it('should let the structure unchanged, given a structure without dates', () => {
+  it('should let the structure unchanged, given a flat structure without dates', () => {
+    const input = DATASET.flatStructureWithoutDates;
+    const output = formatAllDatesToUtc(input);
+
+    expect(output).toStrictEqual(input);
+  });
+
+  it('should preserve functions, given a flat structure with functions & without dates', () => {
     const input = DATASET.flatStructureWithoutDates;
     const output = formatAllDatesToUtc(input);
 
     expect(input.fun()).toBe(DUMMY_NEEDLE);
     expect(output.fun()).toBe(DUMMY_NEEDLE);
-    expect(output).toStrictEqual(input);
   });
 
-  it('should replace all dates by formatted strings, given flat structure with dates', () => {
+  it('should replace all dates by formatted strings, given a flat structure with dates', () => {
     const input = DATASET.flatStructureWithDates;
     const output = formatAllDatesToUtc(input);
 
     expect(output).toMatchSnapshot();
   });
 
-  it('should recursively replace all dates by formatted strings, given structure with dates & nestings', () => {
+  it('should let the structure unchanged, given a structure with nestings & without dates', () => {
+    const input = DATASET.deepStructureWithoutDates;
+    const output = formatAllDatesToUtc(input);
+
+    expect(output).toStrictEqual(input);
+  });
+
+  it('should recursively replace all dates by formatted strings, given a structure with dates & nestings', () => {
     const input = DATASET.deepStructureWithDates;
     const output = formatAllDatesToUtc(input);
 

@@ -13,14 +13,14 @@ describe('formatAllDatesToUtc [typing]', () => {
     expectTypeOf<TOutput>().toEqualTypeOf<TInput>();
   });
 
-  it('should let the type unchanged, given a structure without dates', () => {
+  it('should let the type unchanged, given a flat structure without dates', () => {
     type TInput = typeof DATASET.flatStructureWithoutDates;
     type TOutput = DatesToStrings<TInput>;
 
     expectTypeOf<TOutput>().toEqualTypeOf<TInput>();
   });
 
-  it('should replace all dates by strings, given flat structure with dates', () => {
+  it('should replace all dates by strings, given a flat structure with dates', () => {
     type TInput = typeof DATASET.flatStructureWithDates;
     type TOutput = DatesToStrings<TInput>;
 
@@ -32,7 +32,14 @@ describe('formatAllDatesToUtc [typing]', () => {
     }>();
   });
 
-  it('should recursively replace all dates by formatted strings, given structure with dates & nestings', () => {
+  it('should let the type unchanged, given a structure with nestings & without dates', () => {
+    type TInput = typeof DATASET.deepStructureWithoutDates;
+    type TOutput = DatesToStrings<TInput>;
+
+    expectTypeOf<TOutput>().toEqualTypeOf<TInput>();
+  });
+
+  it('should recursively replace all dates by formatted strings, given a structure with dates & nestings', () => {
     type TInput = typeof DATASET.deepStructureWithDates;
     type TOutput = DatesToStrings<TInput>;
 
